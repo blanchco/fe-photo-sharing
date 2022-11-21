@@ -1,0 +1,7 @@
+<div class="photo-container">
+    <img [src]="src" layout-fill/>
+    <div class="overlay">
+        <button mat-icon-button color="accent"><mat-icon>star_border</mat-icon></button>
+        <button mat-icon-button color="warn" (click)="deleteDialog()"><mat-icon>delete_outline</mat-icon></button>
+    </div>
+</div>
