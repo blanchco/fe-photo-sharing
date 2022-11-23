@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
+import { IPhoto } from 'src/interfaces/photo.interface';
 import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
 
 @Component({
@@ -9,12 +10,18 @@ import { DeleteModalComponent } from '../delete-modal/delete-modal.component';
 })
 export class PhotoComponent {
   @Input()
-  src: any
+  photo!: IPhoto
 
   constructor(public dialog: MatDialog){}
 
   deleteDialog(){
-    const dialogRef = this.dialog.open(DeleteModalComponent)
+    const dialogRef = this.dialog.open(DeleteModalComponent,  
+      { 
+        data: {
+          photo: this.photo
+        }
+      }
+    )
   }
 
 }

@@ -10,7 +10,9 @@
 }
 
 .app-toolbar {
-    flex: 0 1 auto
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: space-between;
 }
 
 .app-content {

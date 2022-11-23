@@ -1,1 +1,7 @@
-<input multiple type="file" (change)="uploadFiles($event)"/>
+<input 
+    #fileInput
+    style="display: none" 
+    multiple 
+    type="file" 
+    (change)="uploadFiles($event)"/>
+<button mat-button color="accent" (click)="fileInput.click()">Upload<mat-icon>upload</mat-icon></button>

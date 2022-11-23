@@ -18,6 +18,11 @@ import { DeleteModalComponent } from './delete-modal/delete-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { FileUploadComponent } from './file-upload/file-upload.component';
 import { HttpClientModule } from '@angular/common/http';
+import { AuthComponent } from './auth/auth.component';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import { ReactiveFormsModule } from '@angular/forms';
+import { AuthInterceptorProvider } from './auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -27,7 +32,8 @@ import { HttpClientModule } from '@angular/common/http';
     FavouritesComponent,
     PhotoComponent,
     DeleteModalComponent,
-    FileUploadComponent
+    FileUploadComponent,
+    AuthComponent
   ],
   imports: [
     BrowserModule,
@@ -40,9 +46,12 @@ import { HttpClientModule } from '@angular/common/http';
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    MatInputModule,
+    MatFormFieldModule,
+    ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
