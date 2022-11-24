@@ -1,24 +1,10 @@
-@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
-.sidenav{
-    width: 200px;
-}
-
 .app-container {
     display: flex;
     flex-flow: column;
     height: 100%;
 }
 
-.app-toolbar {
-    flex: 0 1 auto;
-    display: flex;
-    justify-content: space-between;
-}
-
 .app-content {
     flex: 1 1 auto;
 }
 
-mat-sidenav-content {
-    padding: 10px;
-}

@@ -9,24 +9,43 @@ import { AuthenticationService } from '../authentication.service';
 })
 export class AuthComponent implements OnInit {
 
-  authForm!: FormGroup
+  loginForm!: FormGroup
+  registerForm!: FormGroup
   constructor(private authService: AuthenticationService){}
 
   ngOnInit(): void {
-    this.authForm = new FormGroup({
+    this.loginForm = new FormGroup({
+      username: new FormControl(null),
+      password: new FormControl(null)
+    })
+
+    this.registerForm = new FormGroup({
       username: new FormControl(null),
       password: new FormControl(null)
     })
   }
   
   login(){
+    if(this.loginForm.status === 'VALID'){
+      const user = {
+        username: this.loginForm.value.username,
+        password: this.loginForm.value.password
+      }
 
-
-    const user = {
-      username: this.authForm.value.username,
-      password: this.authForm.value.password
+      this.authService.login(user)
     }
+  }
 
-    this.authService.login(user)
+  register(){
+    if(this.registerForm.status === 'VALID'){
+      const user = {
+        username: this.registerForm.value.username,
+        password: this.registerForm.value.password
+      }
+
+      this.authService.registerUser(user).subscribe((res) => {
+        console.log(res)
+      })
+    }
   }
 }

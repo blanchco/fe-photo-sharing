@@ -23,6 +23,10 @@ import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './auth.interceptor';
+import { HomeComponent } from './home/home.component';
+import {MatCardModule} from '@angular/material/card'
+import {MatTabsModule} from '@angular/material/tabs';
+import { ToolbarComponent } from './toolbar/toolbar.component'
 
 @NgModule({
   declarations: [
@@ -33,7 +37,9 @@ import { AuthInterceptorProvider } from './auth.interceptor';
     PhotoComponent,
     DeleteModalComponent,
     FileUploadComponent,
-    AuthComponent
+    AuthComponent,
+    HomeComponent,
+    ToolbarComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +55,9 @@ import { AuthInterceptorProvider } from './auth.interceptor';
     HttpClientModule,
     MatInputModule,
     MatFormFieldModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatCardModule,
+    MatTabsModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

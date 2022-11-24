@@ -1,32 +1,6 @@
 <div class="app-container">
-  <mat-toolbar color="primary" class="app-toolbar"> 
-    <span>My Photos</span>
-    <div>
-      <app-file-upload></app-file-upload>
-      <button mat-button color="warn" (click)="logout()">Logout</button>
-    </div>
-  </mat-toolbar>
-  <mat-sidenav-container class="app-content">
-    <mat-sidenav mode="side" opened>
-      <mat-nav-list>
-        <mat-list-item routerLink="/">Photos</mat-list-item>
-        <mat-list-item routerLink="/favourites">Favourites</mat-list-item>
-        <mat-list-item routerLink="/albums">Albums</mat-list-item>
-      </mat-nav-list>
-    </mat-sidenav>
-    <mat-sidenav-content>
-      <router-outlet></router-outlet>
-    </mat-sidenav-content>
-  </mat-sidenav-container>
+  <app-toolbar></app-toolbar>
+  <div class="app-content">
+    <router-outlet></router-outlet>
+  </div>  
 </div>
-
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced. * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-

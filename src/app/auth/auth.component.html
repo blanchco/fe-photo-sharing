@@ -1,13 +1,40 @@
-<form class="auth-form" [formGroup]="authForm" (ngSubmit)="login()">
-    <mat-form-field>
-      <mat-label>Username</mat-label>
-      <input formControlName="username" matInput required>
-    </mat-form-field>
-  
-    <mat-form-field class="example-full-width">
-      <mat-label>Password</mat-label>
-      <input formControlName="password" type="password" matInput required>
-    </mat-form-field>
+<div class="auth-container">
+    <mat-card>
+        <mat-tab-group>
+            <mat-tab label="Login">
+                <form class="auth-form" [formGroup]="loginForm" (ngSubmit)="login()">
+                    <div class="form-container">
+                        <mat-form-field>
+                        <mat-label>Username</mat-label>
+                        <input formControlName="username" matInput required>
+                        </mat-form-field>
+                    
+                        <mat-form-field class="example-full-width">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="password" type="password" matInput required>
+                        </mat-form-field>
 
-    <button mat-button color="primary" type="submit">Submit</button>
-</form>
+                        <button mat-button color="primary" type="submit">Login</button>
+                    </div>
+                </form>
+            </mat-tab>
+            <mat-tab label="Register">
+                <form class="auth-form" [formGroup]="registerForm" (ngSubmit)="register()">
+                    <div class="form-container">
+                        <mat-form-field>
+                        <mat-label>Username</mat-label>
+                        <input formControlName="username" matInput required>
+                        </mat-form-field>
+                    
+                        <mat-form-field class="example-full-width">
+                        <mat-label>Password</mat-label>
+                        <input formControlName="password" type="password" matInput required>
+                        </mat-form-field>
+
+                        <button mat-button color="primary" type="submit">Register</button>
+                    </div>
+                </form>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card>
+</div>
