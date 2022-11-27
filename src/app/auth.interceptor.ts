@@ -9,7 +9,7 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { catchError, Observable, switchMap, throwError } from 'rxjs';
-import { AuthenticationService } from './authentication.service';
+import { AuthenticationService } from './../services/authentication.service';
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {

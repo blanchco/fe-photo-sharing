@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AlbumsComponent } from './albums/albums.component';
+import { AlbumsComponent } from './pages/albums/albums.component';
 import { AuthGuard } from './auth.guard';
-import { AuthComponent } from './auth/auth.component';
-import { FavouritesComponent } from './favourites/favourites.component';
-import { HomeComponent } from './home/home.component';
-import { PhotosComponent } from './photos/photos.component';
+import { AuthComponent } from './pages/auth/auth.component';
+import { FavouritesComponent } from './pages/favourites/favourites.component';
+import { HomeComponent } from './pages/home/home.component';
+import { PhotosComponent } from './pages/photos/photos.component';
 
 const routes: Routes = [
   {path: 'login', component: AuthComponent},

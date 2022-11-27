@@ -1,0 +1,19 @@
+
+mat-sidenav-content {
+    padding: 32px;
+}
+mat-sidenav {
+    min-width: 200px;
+}
+mat-sidenav-container {
+    height: 100%;
+}
+
+mat-list-item.active {
+    background-color: #D1C4E9;
+    > mat-icon,
+    ::ng-deep span
+    {
+        color: #673ab7
+    }
+}

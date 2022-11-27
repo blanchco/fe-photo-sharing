@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { AuthenticationService } from '../authentication.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthenticationService } from '../../../services/authentication.service';
 
 @Component({
   selector: 'app-auth',
@@ -11,9 +12,12 @@ export class AuthComponent implements OnInit {
 
   loginForm!: FormGroup
   registerForm!: FormGroup
-  constructor(private authService: AuthenticationService){}
+  constructor(private authService: AuthenticationService, private snackbar: MatSnackBar){}
 
   ngOnInit(): void {
+    if(this.authService.isLoggedIn$){
+      this.authService.logout().subscribe()
+    }
     this.loginForm = new FormGroup({
       username: new FormControl(null),
       password: new FormControl(null)
@@ -32,8 +36,14 @@ export class AuthComponent implements OnInit {
         password: this.loginForm.value.password
       }
 
-      this.authService.login(user)
-    }
+      this.authService.login(user).subscribe(
+        res => {
+          console.log(res)
+        }, 
+        error => {
+        this.snackbar.open('Invalid Details', 'Dismiss', {duration: 5000})
+        })
+      }
   }
 
   register(){
@@ -44,6 +54,7 @@ export class AuthComponent implements OnInit {
       }
 
       this.authService.registerUser(user).subscribe((res) => {
+        this.snackbar.open(`Registered User ${user.username}`, 'Dismiss', {duration: 5000})
         console.log(res)
       })
     }

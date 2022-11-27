@@ -1,0 +1,10 @@
+
+<div class="photo-container">
+    <mat-card style="height:'100%'">
+        <img [src]="'http://localhost:3000/' + photo.image" layout-fill (click)="openPhoto()"/>
+        <div class="overlay">
+            <button mat-icon-button color="accent" (click)="favouritePhoto()"><mat-icon>{{photo.favourite ? 'star': 'star_border'}}</mat-icon></button>
+            <button mat-icon-button color="warn" (click)="deleteDialog()"><mat-icon>delete_outline</mat-icon></button>
+        </div>
+    </mat-card>
+</div>

@@ -1,8 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, catchError, Observable, tap, throwError } from 'rxjs';
 import { IUser } from 'src/interfaces/user.interface';
+import { AppService } from './app.service';
 
 const BASE_URL = 'http://localhost:3000'
 
@@ -13,7 +14,7 @@ export class AuthenticationService {
   private _isLoggedIn$ = new BehaviorSubject<boolean>(false)
   isLoggedIn$ = this._isLoggedIn$.asObservable()
 
-  constructor(private httpClient: HttpClient, private router: Router) { 
+  constructor(private httpClient: HttpClient, private router: Router, private appService: AppService) { 
     this._isLoggedIn$.next(!!this.token)
   }
 
@@ -30,12 +31,14 @@ export class AuthenticationService {
     return this.httpClient.post(BASE_URL + '/auth/register', user)
   }
 
-  login(user: IUser): any{
-    this.httpClient.post(BASE_URL + '/auth/login', user, {withCredentials: true}).subscribe((res: any) => {
+  login(user: IUser): Observable<any>{
+    return this.httpClient.post(BASE_URL + '/auth/login', user, {withCredentials: true}).pipe(
+      tap((res: any) => {
       this._isLoggedIn$.next(true)
       this.token = res.accessToken
       this.router.navigate([''])
     })
+    )
   }
 
   refresh(): Observable<any> {
@@ -47,11 +50,10 @@ export class AuthenticationService {
       tap((res) => {
         this._isLoggedIn$.next(false)
         localStorage.removeItem('accessToken')
+        this.appService.initializeState()
         this.router.navigate(['login'])
         return res
       })
     )
   }
-
-
 }

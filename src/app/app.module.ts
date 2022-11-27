@@ -7,26 +7,29 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
-import { PhotosComponent } from './photos/photos.component';
-import { AlbumsComponent } from './albums/albums.component';
-import { FavouritesComponent } from './favourites/favourites.component';
+import { PhotosComponent } from './pages/photos/photos.component';
+import { AlbumsComponent } from './pages/albums/albums.component';
+import { FavouritesComponent } from './pages/favourites/favourites.component';
 import { MatGridListModule } from '@angular/material/grid-list';
-import { PhotoComponent } from './photo/photo.component';
+import { PhotoComponent } from './components/photo/photo.component';
 import {MatIconModule} from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
-import { DeleteModalComponent } from './delete-modal/delete-modal.component';
+import { DeleteModalComponent } from './components/delete-modal/delete-modal.component';
 import { MatDialogModule } from '@angular/material/dialog';
-import { FileUploadComponent } from './file-upload/file-upload.component';
+import { FileUploadComponent } from './components/file-upload/file-upload.component';
 import { HttpClientModule } from '@angular/common/http';
-import { AuthComponent } from './auth/auth.component';
+import { AuthComponent } from './pages/auth/auth.component';
 import {MatInputModule} from '@angular/material/input';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AuthInterceptorProvider } from './auth.interceptor';
-import { HomeComponent } from './home/home.component';
+import { HomeComponent } from './pages/home/home.component';
 import {MatCardModule} from '@angular/material/card'
 import {MatTabsModule} from '@angular/material/tabs';
-import { ToolbarComponent } from './toolbar/toolbar.component'
+import { ToolbarComponent } from './components/toolbar/toolbar.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { LightboxModule } from 'ngx-lightbox';
+import { LayoutModule } from '@angular/cdk/layout';
 
 @NgModule({
   declarations: [
@@ -57,7 +60,10 @@ import { ToolbarComponent } from './toolbar/toolbar.component'
     MatFormFieldModule,
     ReactiveFormsModule,
     MatCardModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSnackBarModule,
+    LightboxModule,
+    LayoutModule
   ],
   providers: [AuthInterceptorProvider],
   bootstrap: [AppComponent]

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { AppService } from '../app.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { AppService } from '../../../services/app.service';
 
 @Component({
   selector: 'app-file-upload',
@@ -8,7 +9,7 @@ import { AppService } from '../app.service';
 })
 export class FileUploadComponent {
 
-  constructor(private appService: AppService){
+  constructor(private appService: AppService, private snackbar: MatSnackBar){
   }
 
   uploadFiles(event: Event) {
@@ -17,10 +18,14 @@ export class FileUploadComponent {
       const file: File = target.files[0]
 
       let formData = new FormData();
-      formData.set("name", file.name)
-      formData.set("image", file)
+      for (let i = 0; i<target.files.length; i++){
+        formData.append("image", target.files[i])
+      }
+
+      
       this.appService.uploadPhoto(formData).subscribe(()=>{
-        console.log('success')
+        this.snackbar.open('Uploaded Photo', 'Dismiss', {duration: 5000})
+        this.appService.getPhotos()
       })
     }
   }
