@@ -1,21 +1,17 @@
 <mat-sidenav-container>
     <mat-sidenav mode="side" opened>
-    <mat-nav-list>
-        <mat-list-item routerLink routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
-            <mat-icon matListItemIcon>photo_library</mat-icon>
-		    My Photos
-        </mat-list-item>
-        <mat-list-item routerLink="/favourites" routerLinkActive="active">
-            <mat-icon matListItemIcon>star_border</mat-icon>
-		    My Favourites
-        </mat-list-item>
-        <mat-list-item routerLink="/albums" routerLinkActive="active">
-            <mat-icon matListItemIcon>home</mat-icon>
-		    My Albums
-        </mat-list-item>
-    </mat-nav-list>
+        <mat-nav-list>
+            <mat-list-item routerLink routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
+                <mat-icon matListItemIcon>photo_library</mat-icon>
+                My Photos
+            </mat-list-item>
+            <mat-list-item routerLink="/favourites" routerLinkActive="active">
+                <mat-icon matListItemIcon>star_border</mat-icon>
+                My Favourites
+            </mat-list-item>
+        </mat-nav-list>
     </mat-sidenav>
     <mat-sidenav-content>
-    <router-outlet></router-outlet>
+        <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

@@ -1,5 +1,13 @@
-<mat-grid-list [cols]="cols" rowHeight="3:2" gutterSize="16px">
-    <mat-grid-tile *ngFor="let photo of appService.photos$ | async">
-        <app-photo style="height:'100%'" [photo]='photo'></app-photo>
-    </mat-grid-tile>
-</mat-grid-list>
+<ng-container *ngIf="(appService.photos$ | async)!.length > 0">
+    <mat-grid-list [cols]="cols" rowHeight="3:2" gutterSize="16px">
+        <mat-grid-tile *ngFor="let photo of appService.photos$ | async">
+            <app-photo style="height:'100%'" [photo]='photo'></app-photo>
+        </mat-grid-tile>
+    </mat-grid-list>
+</ng-container>
+<ng-container *ngIf="(appService.photos$ | async)!.length === 0">
+    <div class="empty-container">
+        <mat-icon>motion_photos_off</mat-icon>
+        There's nothing here.
+    </div>
+</ng-container>

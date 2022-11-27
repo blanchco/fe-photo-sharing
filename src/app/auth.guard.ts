@@ -6,6 +6,8 @@ import { AuthenticationService } from '../services/authentication.service';
 @Injectable({
   providedIn: 'root'
 })
+
+// Redirects to login page if the user is not logged in
 export class AuthGuard implements CanActivate {
   constructor(private authService: AuthenticationService, private router: Router){}
   canActivate(

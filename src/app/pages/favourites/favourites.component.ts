@@ -10,7 +10,7 @@ import { AppService } from 'src/services/app.service';
   styleUrls: ['./favourites.component.scss']
 })
 export class FavouritesComponent implements OnInit {
-  favourites!: Observable<IPhoto[]>
+  favourites$!: Observable<IPhoto[]>
   cols = 4;
   constructor(public appService: AppService, private breakpointObserver: BreakpointObserver){
   }
@@ -18,7 +18,7 @@ export class FavouritesComponent implements OnInit {
   ngOnInit(): void {
     this.appService.getPhotos();
 
-    this.favourites = this.appService.photos$.pipe(
+    this.favourites$ = this.appService.photos$.pipe(
       map(photos => photos.filter(photo => photo.favourite))
     )
 

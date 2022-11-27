@@ -1,5 +1,5 @@
 <mat-toolbar color="primary" class="app-toolbar"> 
-    <span>My Photos</span>
+    <img src="../../../assets/picnik.png" href="/">
     <div *ngIf="authService.isLoggedIn$ | async">
         <app-file-upload></app-file-upload>
         <button mat-button color="warn" (click)="logout()">Logout</button>
